@@ -1,36 +1,49 @@
 import { init, dispatch } from 'iblokz-state';
-import { body, div, h, button, patchStream } from 'iblokz-snabbdom-helpers';
+import { body, div, h, h1, button, patchStream, span } from 'iblokz-snabbdom-helpers';
 import { toVNode } from 'snabbdom';
 import { map } from 'rxjs';
 
 // Initialize state (RxJS BehaviorSubject)
-const state$ = init({ count: 0 });
+let state$ = init({ count: 0 });
+
 
 // View: state -> vnode
-function view(state) {
+let view = (state) => {
   return body('.app', [
-    h('h1', 'iBlokz Boilerplate'),
-    h('p', `Count: ${state.count}`),
-    button('.btn', {
-      on: {
-        click: () => dispatch(s => ({ ...s, count: s.count + 1 })),
-      },
-    }, 'Increment'),
+    h1('hello world!'),
+    div('.counter', [
+      button('.btn', {
+        on: {
+          click: () => dispatch(s => ({ ...s, count: s.count - 1 })),
+        },
+      }, '-'),
+      span('.counter-value', `${state.count}`),
+      button('.btn', {
+        on: {
+          click: () => dispatch(s => ({ ...s, count: s.count + 1 })),
+        },
+      }, '+'),
+    ]),
   ]);
 }
 
 // console.log('state$', state$);
 
+let vnode$ = state$.pipe(map(view));
+let patchSubscription = patchStream(vnode$, toVNode(document.body));
+
 if (module.hot) {
   module.hot.dispose(function (data) {
-     data.state = state$.getValue();
+    console.log('dispose');
+    data.state = state$.getValue();
+    patchSubscription.unsubscribe();
+    state$.complete();
+    // clean up html structure from events
+    document.body.innerHTML = document.body.innerHTML;
+    console.log('dispose done');
   });
-
   module.hot.accept(function () {
-    state$.next(module.hot.data.state);
+    console.log('accept');
+    dispatch(() => module.hot.data.state);
   });
 }
-
-// Stream of vnodes from state, patched to DOM
-const vnode$ = state$.pipe(map(view));
-patchStream(vnode$, toVNode(document.body));

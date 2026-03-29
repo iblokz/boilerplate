@@ -18,6 +18,7 @@
     "parcel-reporter-static-files-copy": "^1.5.3"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^5.2.7",
     "iblokz-data": "^1.6.0",
     "iblokz-snabbdom-helpers": "^2.0.0",
     "iblokz-state": "^1.1.0",
