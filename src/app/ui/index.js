@@ -1,6 +1,6 @@
 
 
-import { body, div, h, h1, button, patchStream, span } from 'iblokz-snabbdom-helpers';
+import { body, div, h, h1, button, img, span } from 'iblokz-snabbdom-helpers';
 import { dispatch } from 'iblokz-state';
 
 export default state => body('.app', [
@@ -18,4 +18,5 @@ export default state => body('.app', [
       },
     }, '+'),
   ]),
+  button('.arrow-down')
 ]);

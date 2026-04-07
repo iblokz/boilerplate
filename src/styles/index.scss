@@ -1,66 +1,101 @@
 @import '~node_modules/@fontsource/open-sans/index.css';
+
 // public pixel font
 // src/assets/fonts/public-pixel/
 @font-face {
-    font-family: 'Public Pixel';
-    src: url('../assets/fonts/public-pixel/PublicPixel.woff2') format('woff2'),
-         url('../assets/fonts/public-pixel/PublicPixel.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Public Pixel';
+  src: url('../assets/fonts/public-pixel/PublicPixel.woff2') format('woff2'),
+    url('../assets/fonts/public-pixel/PublicPixel.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
 body {
-    font-family: 'Public Pixel', sans-serif; // 'Open Sans', sans-serif;
-    background: linear-gradient(to bottom, #514b5e, #27252d) no-repeat center center fixed;
+  font-family: 'Public Pixel', sans-serif; // 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom, #514b5e, #27252d) no-repeat center center fixed;
 }
 
 h1 {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: bold;
+  color: #dcf7e1;
+  text-shadow: 4px 4px 0 #34294b;
+  // text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff;
+  text-align: center;
+}
+
+
+.counter {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(-30deg, #514b5e, #27252d) no-repeat center center fixed;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 #34294b;
+  font-family: 'Public Pixel', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+
+  .counter-value {
+    font-size: 48px;
     font-weight: bold;
     color: #dcf7e1;
     text-shadow: 4px 4px 0 #34294b;
     // text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff;
-    text-align: center;
-}
-  
+  }
 
-.counter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(-30deg, #514b5e, #27252d) no-repeat center center fixed;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 0 #34294b;
+  .btn {
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
     font-family: 'Public Pixel', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 10px;
-    .counter-value {
-        font-size: 48px;
-        font-weight: bold;
-        color: #dcf7e1;
-        text-shadow: 4px 4px 0 #34294b;
-        // text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff;
-    }
-    .btn {
-        background-color: unset;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        font-family: 'Public Pixel', sans-serif;
-        font-size: 48px;
-        font-weight: bold;
-        color: #dcf7e1;
-        text-shadow: 4px 4px 0 #34294b;
-        // text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff;
-    }
+    font-size: 48px;
+    font-weight: bold;
+    color: #dcf7e1;
+    text-shadow: 4px 4px 0 #34294b;
+    // text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px 0 0 #fff;
+  }
+}
+
+.arrow-down {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  overflow: visible;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mask: url("../assets/icons/arrow-down.svg") center / contain no-repeat;
+    -webkit-mask: url("../assets/icons/arrow-down.svg") center / contain no-repeat;
+  }
+
+  &::before {
+    transform: translate(4px, 4px);
+    background-color: #251d36;
+  }
+
+  &::after {
+    background-color: #dcf7e1;
+  }
 }

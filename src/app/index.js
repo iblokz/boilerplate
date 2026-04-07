@@ -20,7 +20,7 @@ let vnode$ = state$.pipe(map(ui));
 // patch vnode stream to dom
 let patchSubscription = patchStream(vnode$, toVNode(document.body));
 
-state$.subscribe(console.log);
+// state$.subscribe(console.log);
 
 if (module.hot) {
   module.hot.dispose(function (data) {
