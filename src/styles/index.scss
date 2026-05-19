@@ -1,4 +1,6 @@
 @import '~node_modules/@fontsource/open-sans/index.css';
+@import '~node_modules/@fontsource/fira-code/index.css';
+@import 'themes';
 @import 'header';
 @import 'sections';
 @import 'examples';
@@ -13,5 +15,4 @@
 
 body {
   margin: 0;
-  font-family: 'Public Pixel', sans-serif;
 }

@@ -6,8 +6,17 @@
   right: 0;
   z-index: 100;
   padding: 8px 24px 12px;
-  background: rgba(39, 37, 45, calc(var(--header-progress) * 0.88));
-  box-shadow: 0 calc(4px * var(--header-progress)) 0 rgba(52, 41, 75, var(--header-progress));
+  background: color-mix(
+    in srgb,
+    var(--app-bg-header-formed) calc(var(--header-progress) * 100%),
+    transparent
+  );
+  box-shadow: 0 calc(4px * var(--header-progress)) 0
+    color-mix(
+      in srgb,
+      var(--app-shadow) calc(var(--header-progress) * 100%),
+      transparent
+    );
   transition: background 0.15s ease, box-shadow 0.15s ease;
 
   .site-nav {
@@ -20,15 +29,16 @@
   }
 
   .site-title {
-    font-family: 'Public Pixel', sans-serif;
+    font-family: inherit;
     font-size: 20px;
-    color: #dcf7e1;
+    color: var(--app-text);
     text-decoration: none;
-    text-shadow: 3px 3px 0 #34294b;
+    text-shadow: var(--app-title-text-shadow);
     white-space: nowrap;
+    transition: color 0.2s;
 
     &:hover {
-      color: #fff;
+      color: var(--app-text-hover);
     }
   }
 
@@ -39,25 +49,38 @@
   }
 
   .control {
-    font-family: 'Public Pixel', sans-serif;
+    font-family: inherit;
     font-size: 12px;
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: var(--app-radius-control);
     border: 2px solid transparent;
     background: transparent;
-    color: #dcf7e1;
-    text-shadow: 2px 2px 0 #34294b;
-    cursor: not-allowed;
+    color: var(--app-text);
+    text-shadow: var(--app-label-text-shadow);
+    cursor: pointer;
     opacity: calc(0.5 + var(--header-progress) * 0.5);
-    transition: border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease,
+      opacity 0.15s ease,
+      color 0.2s;
 
     &:disabled {
       cursor: not-allowed;
     }
   }
 
-  &.is-formed .control {
-    border-color: rgba(220, 247, 225, calc(var(--header-progress) * 0.4));
-    background: rgba(39, 37, 45, calc(var(--header-progress) * 0.5));
+  &.is-formed .control:not(:disabled) {
+    border-color: color-mix(
+      in srgb,
+      var(--app-control-border-formed) calc(var(--header-progress) * 100%),
+      transparent
+    );
+    background: color-mix(
+      in srgb,
+      var(--app-control-bg-formed) calc(var(--header-progress) * 100%),
+      transparent
+    );
+    opacity: 1;
   }
 }

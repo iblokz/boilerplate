@@ -1,7 +1,9 @@
 import { obj } from 'iblokz-data';
+import { getInitialTheme } from '../util/theme';
 
 export const initial = {
   count: 0,
+  ...getInitialTheme(),
   viewport: {
     mouse: {
       x: 0,
@@ -15,7 +17,7 @@ export const initial = {
       scroll: { x: 0, y: 0 },
     },
   },
-}
+};
 
 
 export const patch = (path, value) => state => obj.patch(state, path, value);
@@ -24,4 +26,4 @@ export const patch = (path, value) => state => obj.patch(state, path, value);
 export default {
   initial,
   patch,
-}
+};

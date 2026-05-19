@@ -1,7 +1,14 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #514b5e, #27252d) no-repeat center center;
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size-base);
+  background: var(--app-bg-page) no-repeat center center;
   background-size: cover;
+  color: var(--app-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    font-family 0.1s ease;
 }
 
 #hero {
@@ -19,8 +26,8 @@
     left: 50%;
     font-size: 36px;
     font-weight: bold;
-    color: #dcf7e1;
-    text-shadow: 4px 4px 0 #34294b;
+    color: var(--app-text);
+    text-shadow: var(--app-heading-text-shadow);
     text-align: center;
     margin: 0;
     white-space: nowrap;
@@ -36,33 +43,34 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(-30deg, #514b5e, #27252d);
+  background: var(--app-bg-panel);
+  border: var(--app-panel-border);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 #34294b;
+  border-radius: var(--app-radius-panel);
+  box-shadow: var(--app-panel-shadow);
 
   .btn {
     background: unset;
     border: none;
     box-shadow: none;
     padding: 10px;
-    font-family: 'Public Pixel', sans-serif;
-    font-size: 48px;
+    font-family: inherit;
+    font-size: var(--app-counter-size);
     font-weight: bold;
-    color: #dcf7e1;
-    text-shadow: 4px 4px 0 #34294b;
+    color: var(--app-text);
+    text-shadow: var(--app-heading-text-shadow);
     cursor: pointer;
 
     &:hover {
-      color: #fff;
+      color: var(--app-text-hover);
     }
   }
 
   .counter-value {
-    font-size: 48px;
+    font-size: var(--app-counter-size);
     font-weight: bold;
-    color: #dcf7e1;
-    text-shadow: 4px 4px 0 #34294b;
+    color: var(--app-text);
+    text-shadow: var(--app-heading-text-shadow);
     min-width: 2ch;
     text-align: center;
   }
@@ -93,11 +101,11 @@
 
   &::before {
     transform: translate(4px, 4px);
-    background-color: #251d36;
+    background-color: var(--app-arrow-shadow);
   }
 
   &::after {
-    background-color: #dcf7e1;
+    background-color: var(--app-arrow-fill);
   }
 }
 
