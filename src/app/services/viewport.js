@@ -48,6 +48,13 @@ export const start = ({state$}) => {
 								: 'xs'
 			}))));
 
+	subs.push(
+		fromEvent(window, 'scroll')
+			.pipe(startWith({}))
+			.subscribe(() => dispatch(patch(['viewport', 'screen'], {
+				scroll: { x: window.scrollX, y: window.scrollY }
+			}))));
+
 	stop = () => subs.forEach(sub => sub.dispose());
 };
 

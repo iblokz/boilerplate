@@ -11,6 +11,8 @@ export const initial = {
     screen: {
       width: 0,
       height: 0,
+      size: 'md',
+      scroll: { x: 0, y: 0 },
     },
   },
 }
