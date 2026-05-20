@@ -13,8 +13,18 @@ import viewport from './services/viewport';
 import ui from './ui';
 
 let state$ = init(initial);
+
+state$
+  .pipe(
+    distinctUntilChanged(s => s.themeFamily + s.themeMode)
+  )
+  // .subscribe(s => console.log('state', s));
+
+// services
+// viewport
 viewport.start({ state$ });
 
+// theme change tracking
 state$
   .pipe(
     map(s => serializeTheme(s)),
@@ -22,6 +32,7 @@ state$
   )
   .subscribe(theme => localStorage.setItem('boilerplate-theme', theme));
 
+// state -> ui
 let vnode$ = state$.pipe(map(ui));
 let patchSubscription = patchStream(vnode$, toVNode(document.body));
 

@@ -1,4 +1,5 @@
-import { header, nav, a, div, select, option } from 'iblokz-snabbdom-helpers';
+import { header, nav, a, div, select, option, img } from 'iblokz-snabbdom-helpers';
+
 import { dispatch } from 'iblokz-state';
 import { scrollToSection } from '../util/scroll';
 import { patch } from '../state';
@@ -34,7 +35,12 @@ export default state => {
     nav('.site-nav', [
       a('.site-title[href="#hero"]', {
         on: { click: onHomeClick },
-      }, 'iBlokz Boilerplate'),
+      }, [
+        img('.site-logo', {
+          props: { src: 'assets/logo.png', alt: '' },
+        }),
+        'iBlokz Boilerplate'
+      ]),
       div('.site-controls', [
         select('.control.lang-select', {
           props: { disabled: true },
@@ -50,7 +56,7 @@ export default state => {
             ),
           },
         }, THEME_FAMILIES.map(family =>
-          option({ props: { value: family } }, familyLabel(family))
+          option({ props: { value: family, selected: family === state.themeFamily } }, familyLabel(family))
         )),
         select('.control.theme-mode-select', {
           props: { value: state.themeMode },
@@ -60,7 +66,7 @@ export default state => {
             ),
           },
         }, THEME_MODES.map(mode =>
-          option({ props: { value: mode } }, mode.charAt(0).toUpperCase() + mode.slice(1))
+          option({ props: { value: mode, selected: mode === state.themeMode } }, mode.charAt(0).toUpperCase() + mode.slice(1))
         )),
       ]),
     ]),

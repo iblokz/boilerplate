@@ -28,10 +28,6 @@ export default state => {
     div('.example-block.theme-guide', [
       h2(`Theme: ${meta.label} (${state.themeMode})`),
       p('.theme-summary', meta.summary),
-      h3('Reference projects'),
-      ul('.ref-list', meta.references.map(ref =>
-        li([span('.ref-name', ref.name), span('.ref-path', ref.path)])
-      )),
       h3('What changes in this family'),
       ul('.trait-list', meta.traits.map(trait => li(trait))),
       div('.token-preview', [
@@ -88,7 +84,7 @@ export default state => {
         ]),
       ]),
     ]),
-    exampleBlock('Table & tags (CRM / inventory)', [
+    exampleBlock('Table & tags', [
       p('.example-note', 'Row states and compact tags — common in inventory and thriftify-style apps.'),
       table('.demo-grid', [
         tr([
@@ -108,8 +104,8 @@ export default state => {
         ]),
       ]),
     ]),
-    exampleBlock('Toolbar (Studio / media-browser)', [
-      p('.example-note', 'Inset controls like media-browser header search and tool rows.'),
+    exampleBlock('Toolbar', [
+      p('.example-note', 'Inset controls like header search and tool rows.'),
       div('.demo-toolbar', [
         input('[type="search"][placeholder="Search…"]'),
         button('.btn.btn-secondary', 'Open'),

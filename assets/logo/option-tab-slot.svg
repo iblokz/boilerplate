@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="iBlokz logo option: tab and slot">
+  <title>Tab and slot</title>
+  <!-- Left block + tab into right block notch (not tetromino L shapes) -->
+  <g fill="none" stroke="#34294b" stroke-width="2" stroke-linejoin="miter">
+    <path fill="#514b5e" d="M8 12h20v40H8V12z"/>
+    <path fill="#6d6580" d="M28 28h14v8H28v-8z"/>
+    <path fill="#dcf7e1" d="M36 12h20v18h-8V30H36V12z"/>
+    <path fill="#514b5e" d="M44 30h12v22H44V30z"/>
+    <path fill="#27252d" d="M36 30h8v22h-8V30z"/>
+  </g>
+</svg>

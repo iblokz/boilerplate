@@ -1,4 +1,4 @@
-import { section, h1, div, button, span } from 'iblokz-snabbdom-helpers';
+import { section, h2, div, button, span, img, p } from 'iblokz-snabbdom-helpers';
 import { dispatch } from 'iblokz-state';
 import { scrollToSection } from '../../util/scroll';
 

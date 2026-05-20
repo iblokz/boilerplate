@@ -1,7 +1,7 @@
 export const THEME_REFERENCES = {
   pixel: {
     label: 'Pixel',
-    summary: 'Retro pixel-art HUD — the default iBlokz boilerplate look.',
+    summary: 'Retro pixel-art HUD',
     references: [
       { name: 'iBlokz boilerplate', path: 'this project' },
     ],
@@ -41,7 +41,7 @@ export const THEME_REFERENCES = {
   },
   crm: {
     label: 'CRM',
-    summary: 'Product / forms UI — flat thriftify surfaces + inventory-style embossed controls.',
+    summary: 'Product / forms UI',
     references: [
       { name: 'thriftify.me', path: '~/Projects/dev/apps/thriftify.me' },
       { name: 'i4web inventory', path: '~/Projects/dev/org/i4web/inventory' },

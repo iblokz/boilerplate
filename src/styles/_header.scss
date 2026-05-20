@@ -29,17 +29,25 @@
   }
 
   .site-title {
-    font-family: inherit;
-    font-size: 20px;
-    color: var(--app-text);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
     text-decoration: none;
-    text-shadow: var(--app-title-text-shadow);
-    white-space: nowrap;
-    transition: color 0.2s;
+    line-height: 0;
+    transition: opacity 0.2s;
 
     &:hover {
-      color: var(--app-text-hover);
+      opacity: 0.88;
     }
+  }
+
+  .site-logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: min(160px, 42vw);
+    object-fit: scale-down;
+    margin-right: 10px;
   }
 
   .site-controls {

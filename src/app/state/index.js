@@ -19,7 +19,6 @@ export const initial = {
   },
 };
 
-
 export const patch = (path, value) => state => obj.patch(state, path, value);
 
 
